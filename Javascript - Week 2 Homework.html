@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript : Week 2 Homework</title>
+    <style>
+      div {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      button {
+        display: block;
+        padding: 20px;
+        border: 1px solid #1b64d6;
+        border-radius: 30px;
+        font-size: large;
+        background-color: #1b64d6;
+        color: white;
+        margin: -25px auto;
+        transition: all 200ms ease-in-out;
+        font-weight: normal;
+        box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: #871a34;
+      }
+      h1 {
+        color: #1b64d6;
+        font-size: larger;
+        margin: 0 auto;
+      }
+      h2 {
+        font-size: 30px;
+        text-align: center;
+        font-weight: normal;
+      }
+      ul {
+        display: block;
+        padding: 0px;
+        margin: 0px auto;
+      }
+      li {
+        text-align: center;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        margin: 0 auto;
+        transition: all 200ms ease-in-out;
+        max-width: 400px;
+        list-style: none;
+      }
+      li:hover {
+        cursor: normal;
+        background-color: #fffbef;
+      }
+      h3 {
+        font-weight: normal;
+        color: #4d4c48;
+        font-family: monospace;
+      }
+      p {
+        font-size: larger;
+        color: #1b64d6;
+        font-weight: bold;
+        margin: 0 auto;
+      }
+      .weather {
+        font-size: 30px;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .author {
+        text-align: center;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 20px;
+        color: #444340;
+        margin: 50px auto;
+        font-weight: bold;
+        font-size: medium;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="weather">
+      <p>🌤</p>
+      <h1>Currently 21° in Tokyo</h1>
+      <h2>13° / <strong> 23°</strong></h2>
+      <ul>
+        <li>
+          🌧Tomorrow
+          <h3>10°&nbsp;/&nbsp;<strong> 22°</strong></h3>
+        </li>
+        <br />
+        <li>
+          🌥 Saturday
+          <h3>15°&nbsp;/&nbsp;<strong> 17°</strong></h3>
+        </li>
+        <br />
+        <li>
+          ☀️ Sunday
+          <h3>25°&nbsp;/&nbsp;<strong> 28°</strong></h3>
+        </li>
+        <br />
+      </ul>
+      <br />
+      <button>Change City</button>
+      <div class="author">Coded by Anusha Ravi</div>
+    </div>
+
+    <script>
+      function emojiChange(newEmoji) {
+        let emoji = document.querySelector("p");
+        emoji.innerHTML = newEmoji;
+      }
+      function headingChange(newHeading) {
+        heading = document.querySelector("h1");
+        heading.innerHTML = newHeading;
+      }
+      function check(temperature) {
+        return temperature >= 0;
+      }
+      function address() {
+        let city = prompt("What city do you live in?");
+        let temperature = prompt("What temperature is it?");
+        if (check(temperature)) {
+          emojiChange(`😄`);
+          headingChange(`Currently ${temperature}°C in ${city}`);
+        } else {
+          emojiChange(`☹️`);
+          headingChange(`Currently ${temperature}°C in ${city}`);
+        }
+      }
+      let changeButton = document.querySelector("button");
+      changeButton.addEventListener("click", address);
+    </script>
+  </body>
+</html>
